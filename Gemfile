@@ -19,8 +19,10 @@ end
 group :development do
   gem 'web-console',           '3.1.1'
   gem 'listen',                '3.0.8'
+  gem 'rails_real_favicon'
   gem 'spring',                '1.7.2'
   gem 'spring-watcher-listen', '2.0.0'
+
 end
 
 group :test do
