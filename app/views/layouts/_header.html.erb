@@ -1,0 +1,16 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to image_tag("moth_logo.png", alt: "Moth Books Logo"), root_path, id: "logo" %>
+
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Sign up", signup_path  %></li>
+        <li><%= link_to "Log in", login_path %></li>
+        <li><%= link_to image_tag("cart_white", onmouseover: "this.src='/assets/cart_yellow.png'",
+                                      onmouseout: "this.src='/assets/cart_white.png'",
+                                      alt: "Cart"),
+                                      root_path, id: "cart" %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
