@@ -13,16 +13,17 @@ Category.create id: 2, name: "Science Fiction"
 Book.delete_all
 Book.create id: 1, title: "The Lord of the Rings Trilogy", author: "J.R.R. Tolkien",
             category_id: Category.find(1).id, year: 1954,
-            image_filename: "the_lord_of_the_rings_trilogy.gif"
+            image_filename: "books/the_lord_of_the_rings_trilogy.gif",
+            description: "blablabla"
 Book.create id: 2, title: "The Hobbit", author: "J.R.R. Tolkien",
             category_id: Category.find(1).id, year: 1937,
-            image_filename: "the_hobbit.jpg"
+            image_filename: "books/the_hobbit.jpg"
 Book.create id: 3, title: "The Silmarillion", author: "J.R.R. Tolkien",
             category_id: Category.find(1).id, year: 1977,
-            image_filename: "the_silmarillion.png"
+            image_filename: "books/the_silmarillion.png"
 Book.create id: 4, title: "Good Omens", author: "Terry Pratchett & Neil Gaiman",
             category_id: Category.find(1).id, year: 1990,
-            image_filename: "good_omens.jpg"
+            image_filename: "books/good_omens.jpg"
 Book.create id: 5, title: "Ender's Game", author: "Orson Scott Card",
             category_id: Category.find(2).id, year: 1985,
-            image_filename: "enders_game.jpg"
+            image_filename: "books/enders_game.jpg"
