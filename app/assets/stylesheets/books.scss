@@ -1,0 +1,35 @@
+// Place all the styles related to the Books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.book_image {
+  float: left;
+}
+.book_description {
+  padding-left: 300px;
+}
+.book_price {
+  margin-left: 10px;
+  margin-right: -10px;
+}
+
+.book_info {
+  h2 {
+    font-size: 1.8em;
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eaeaea;
+    color: black;
+    font-weight: bold;
+  }
+  ul {
+    margin-top: 0px;
+      li {
+      list-style-type: none;
+      padding-bottom: 30px;
+      margin-left: -40px;
+      font-size: 1.1em;
+    }
+  }
+}

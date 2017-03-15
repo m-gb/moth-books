@@ -1,0 +1,27 @@
+<% provide(:title, @book.title) %>
+<div class="row">
+  <div class="container">
+    <div class="jumbotron col-md-8">
+      <div class="book_image">
+        <%= image_tag(@book.image_filename, alt: "#{@book.title} Image") %>
+      </div>
+      <div class="book_description">
+        <h1><%= @book.title %></h1>
+        <p><%= @book.description %></p>
+      </div>
+    </div>
+    <div class="jumbotron col-md-4 book_price">
+      <h1>$<%= @book.price %></h1>
+    </div>
+  </div>
+</div>
+<div class="container jumbotron">
+  <div class="book_info">
+    <h2>Book Information</h2>
+    <ul>
+      <li><strong>Author:</strong> <%= @book.author %></li>
+      <li><strong>Year:</strong> <%= @book.year %></li>
+      <li><strong>Category:</strong> <%= Category.find(@book.category_id).name %></li>
+    </ul>
+  </div>
+</div>
