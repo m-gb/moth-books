@@ -1,4 +1,7 @@
 <% provide(:title, @book.title) %>
+<div class="book_category">
+  <strong>Category:</strong> <%= link_to Category.find(@book.category_id).name, root_path %>
+</div>
 <div class="row">
   <div class="container">
     <div class="jumbotron col-md-8">
@@ -12,16 +15,17 @@
     </div>
     <div class="jumbotron col-md-4 book_price">
       <h1>$<%= @book.price %></h1>
+      <p>Plus shipping</p>
+      <%= link_to "Add to cart", root_path, class: "btn btn-lg btn-primary" %>
     </div>
   </div>
 </div>
-<div class="container jumbotron">
+<div class=" jumbotron">
   <div class="book_info">
     <h2>Book Information</h2>
     <ul>
       <li><strong>Author:</strong> <%= @book.author %></li>
       <li><strong>Year:</strong> <%= @book.year %></li>
-      <li><strong>Category:</strong> <%= Category.find(@book.category_id).name %></li>
     </ul>
   </div>
 </div>

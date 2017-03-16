@@ -9,6 +9,7 @@
 Category.delete_all
 Category.create id: 1, name: "Fantasy"
 Category.create id: 2, name: "Science Fiction"
+Category.create id: 3, name: "Horror"
 
 Book.delete_all
 Book.create id: 1, title: "The Lord of the Rings Trilogy", author: "J.R.R. Tolkien",

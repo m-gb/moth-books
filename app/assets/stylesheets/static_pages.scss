@@ -1,3 +1,36 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sidebar {
+  margin-right: -20px;
+  .jumbotron {
+    padding: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    h2 {
+      color: #666;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0px;
+      li {
+        border-top: 1px solid #cacaca;
+        border-bottom: 1px solid #cacaca;
+      }
+      li:first-child {
+        border-bottom: none;
+      }
+      li:last-child {
+        border-bottom: none;
+        border-top: none;
+
+      }
+    }
+  }
+}
+.main {
+
+}

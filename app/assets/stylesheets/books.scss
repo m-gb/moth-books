@@ -2,6 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.book_category {
+  border-color: #cacaca;
+  border-style: solid;
+  border-width: 1px;
+  color: #666;
+  padding: 10px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  width: 1380px;
+  a {
+    color: #666;
+    &:hover {
+      color: #666;
+    }
+  }
+}
+.row {
+  margin-bottom: -20px;
+}
 .book_image {
   float: left;
 }
@@ -12,7 +31,6 @@
   margin-left: 10px;
   margin-right: -10px;
 }
-
 .book_info {
   h2 {
     font-size: 1.8em;
