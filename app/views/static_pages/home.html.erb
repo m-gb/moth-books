@@ -4,7 +4,7 @@
       <h2>Categories</h2>
       <ul>
         <% for c in Category.all %>
-          <li><%= link_to c.name, root_path %></li>
+          <li><%= link_to c.name, category_path(c) %></li>
         <% end %>
       </ul>
     </div>

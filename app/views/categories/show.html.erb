@@ -1,0 +1,5 @@
+<h1><%= @category.name %><h1>
+  <% @books.each do |b| %>
+    <%= image_tag(b.image_filename, alt: "#{b.title} Image") + "\n" %>
+    <%= b.title + "\n" %>
+  <% end %>
