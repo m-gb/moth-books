@@ -1,0 +1,36 @@
+// Place all the styles related to the Categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.book_list {
+  padding: 0;
+  list-style: none;
+}
+.book_item {
+  display: inline-block;
+  padding: 10px;
+  width: 150px;
+}
+.book_text {
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+}
+.book_title {
+  height: 3em;
+  font-weight: bold;
+  a {
+    color: black;
+    &:hover {
+      color: black;
+    }
+  }
+}
+.book_author {
+  height: 2em;
+}
+.book_price {
+  color: #ff8080;
+  font-size: 1.6rem;
+  font-weight: bold;
+}

@@ -3,8 +3,6 @@
 
 /*mixins, variables, etc. */
 
-$gray-medium-light: #eaeaea;
-
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
@@ -19,27 +17,31 @@ body {
   background-color: #f0f0f0;
 }
 
+.container {
+    width: 90%;
+}
+
 .center {
   text-align: center;
 }
 
-.container {
-  width: 1400px;
-}
-
 .jumbotron {
   background-color: white;
-  h1 {
-    font-weight: bold;
-    font-size: 2.4rem;
+}
+
+.main {
+  h2 {
+    font-size: 1.8em;
     text-align: left;
-    border-bottom: 1px solid #eaeaea;
+    padding-top: -15px;
     padding-bottom: 15px;
+    border-bottom: 1px solid #eaeaea;
   }
-  p {
-    font-size: 1.3em;
-    padding-top: 15px;
-  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* header */

@@ -10,7 +10,6 @@
   padding: 10px;
   margin-top: -10px;
   margin-bottom: 10px;
-  width: 1380px;
   a {
     color: #666;
     &:hover {
@@ -18,27 +17,29 @@
     }
   }
 }
-.row {
-  margin-bottom: -20px;
-}
 .book_image {
-  float: left;
 }
 .book_description {
-  padding-left: 300px;
+  h2 {
+    font-weight: bold;
+  }
 }
 .book_price {
-  margin-left: 10px;
-  margin-right: -10px;
+  margin-left: -5px;
+  margin-right: -15px;
+  h2 {
+    color: #ff8080;
+    font-size: 2em;
+    font-weight: bold;
+  }
+  p {
+    color: black;
+    font-size: 1em;
+  }
 }
 .book_info {
+  margin-top: -20px;
   h2 {
-    font-size: 1.8em;
-    text-align: left;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #eaeaea;
-    color: black;
     font-weight: bold;
   }
   ul {

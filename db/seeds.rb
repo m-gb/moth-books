@@ -18,13 +18,13 @@ Book.create id: 1, title: "The Lord of the Rings Trilogy", author: "J.R.R. Tolki
             description: "blablabla", price: 10.99
 Book.create id: 2, title: "The Hobbit", author: "J.R.R. Tolkien",
             category_id: Category.find(1).id, year: 1937,
-            image_filename: "books/the_hobbit.png"
+            image_filename: "books/the_hobbit.png",
+            description: "blablabla", price: 11.98
 Book.create id: 3, title: "The Silmarillion", author: "J.R.R. Tolkien",
             category_id: Category.find(1).id, year: 1977,
-            image_filename: "books/the_silmarillion.png"
-Book.create id: 4, title: "Good Omens", author: "Terry Pratchett & Neil Gaiman",
-            category_id: Category.find(1).id, year: 1990,
-            image_filename: "books/good_omens.png"
-Book.create id: 5, title: "Ender's Game", author: "Orson Scott Card",
+            image_filename: "books/the_silmarillion.png",
+            description: "blablabla", price: 12.97
+Book.create id: 4, title: "Ender's Game", author: "Orson Scott Card",
             category_id: Category.find(2).id, year: 1985,
-            image_filename: "books/enders_game.png"
+            image_filename: "books/enders_game.png",
+            description: "blablabla", price: 13.96
