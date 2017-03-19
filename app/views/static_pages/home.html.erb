@@ -1,13 +1,11 @@
 <div class="row">
   <div class="col-md-2 sidebar">
-    <div class="jumbotron nav nav-sidebar">
+    <ul class="jumbotron nav nav-sidebar">
       <h2>Categories</h2>
-      <ul>
-        <% for c in Category.all %>
-          <li><%= link_to c.name, category_path(c) %></li>
-        <% end %>
-      </ul>
-    </div>
+      <% for c in Category.all %>
+        <li><%= link_to c.name, category_path(c), class: "navbar-link" %></li>
+      <% end %>
+    </ul>
   </div>
   <div class="col-md-10 main">
     <div class="jumbotron">

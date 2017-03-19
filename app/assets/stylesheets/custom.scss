@@ -29,6 +29,10 @@ body {
   background-color: white;
 }
 
+h2 {
+  margin-bottom: 30px;
+}
+
 .main {
   h2 {
     font-size: 1.8em;
@@ -43,6 +47,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 
 /* header */
 
@@ -65,9 +70,15 @@ img {
   ul li a {
     color: black !important;
     padding-top: 0px !important;
+    &:hover {
+      text-decoration: none !important;
+    }
   }
 }
 
+.current_user {
+  color: white;
+}
 
 #logo {
   float: left;
@@ -129,17 +140,30 @@ input {
   height: auto !important;
 }
 
-#error_explanation {
-  color: red;
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
   }
 }
 
-.field_with_errors {
-  @extend .has-error;
-  .form-control {
-    color: $state-danger-text;
-  }
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
 }
+// #error_explanation {
+//   color: red;
+//   ul {
+//     color: red;
+//     margin: 0 0 30px 0;
+//   }
+// }
+//
+// .field_with_errors {
+//   @extend .has-error;
+//   .form-control {
+//     color: $state-danger-text;
+//   }
+// }
