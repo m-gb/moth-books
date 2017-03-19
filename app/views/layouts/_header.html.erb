@@ -4,7 +4,24 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Sign up", signup_path  %></li>
-        <li><%= link_to "Log in", login_path %></li>
+
+        <% if logged_in? %>
+          <li class="account_info dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Orders", root_path %></li>
+              <li><%= link_to "Account Settings", root_path %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", logout_path, method: "delete" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
         <li><%= link_to image_tag("cart_white", onmouseover: "this.src='/assets/cart_yellow.png'",
                                       onmouseout: "this.src='/assets/cart_white.png'",
                                       alt: "Cart"),

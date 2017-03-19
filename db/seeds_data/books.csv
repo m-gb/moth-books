@@ -1,0 +1,8 @@
+id,title,author,price,category_id,year,description,image_filename
+5,Doctor Sleep,Stephen King,14.95,3,2013,,books/doctor_sleep.png
+6,Intensity,Dean Koontz,15.94,3,1995,,books/intensity.png
+7,It,Stephen King,16.93,3,1986,,books/it.png
+8,One Door Away From Heaven,Dean Koontz,17.92,3,2001,,books/one_door_away_from_heaven.png
+9,The Green Mile,Stephen King,18.91,4,1996,,books/the_green_mile.png
+10,The Murder of Roger Ackroyd,Agatha Christie,19.89,4,1926,,books/the_murder_of_roger_ackroyd.png
+11,The Shining,Stephen King,20.88,3,1977,,books/the_shining.png
