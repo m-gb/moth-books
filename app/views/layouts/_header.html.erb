@@ -1,7 +1,20 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <%= link_to image_tag("moth_logo.png", alt: "Moth Books Logo"), root_path, id: "logo" %>
-    <nav>
+    <div class="col-md-7">
+      <div class="navbar-form">
+        <%= form_tag books_path, method: :get, class: "navbar-form", role: 'search' do %>
+          <div class="input-group">
+            <%= text_field_tag :term, params[:term], size: 150, placeholder: "Search for books by title or author...", class: "search_button_text form-control"  %>
+            <div class="input-group-btn">
+              <%= button_tag(type: "submit", class: "search_button btn btn-info") do %>
+                <i class="glyphicon glyphicon-search"></i>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li class="account_info dropdown">

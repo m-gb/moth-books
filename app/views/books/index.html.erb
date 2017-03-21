@@ -1,0 +1,19 @@
+<h1>Search results for '<%= params[:term] %>'</h1>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <% for book in @books %>
+        <div class='book'>
+            <%= link_to image_tag(book.image_filename), book_path(book) %>
+            <strong> <%=  book.title %> </strong>
+        </div>
+      <% end %>
+     </tr>
+  </tbody>
+</table>
