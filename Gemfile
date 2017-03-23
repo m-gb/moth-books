@@ -11,7 +11,6 @@ gem 'jquery-ui-rails',          '6.0.1'
 gem 'turbolinks',               '5.0.1'
 gem 'jbuilder',                 '2.4.1'
 gem 'devise',                   '4.2.1'
-gem 'bootstrap-typeahead-rails','0.10.5.1'
 
 group :development, :test do
   gem 'sqlite3', '1.3.12'
