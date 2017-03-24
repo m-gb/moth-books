@@ -2,7 +2,7 @@ class BooksController < ApplicationController
 
   def index
     @books = if params[:term]
-      Book.where('title LIKE ?', "%#{params[:term]}%")
+      Book.where('author LIKE :search OR title LIKE :search', search: "%#{params[:term]}%")
     else
       Book.all
     end

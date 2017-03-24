@@ -10,41 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170323000749) do
+ActiveRecord::Schema.define(version: 20170324000154) do
 
-  create_table "books", force: :cascade do |t|
+  create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.string   "author"
-    t.decimal  "price"
+    t.decimal  "price",                             precision: 4, scale: 2
     t.integer  "category_id"
     t.integer  "year"
-    t.string   "description"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.text     "description",    limit: 4294967295
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
     t.string   "image_filename"
   end
 
-  create_table "cart_items", force: :cascade do |t|
+  create_table "cart_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "books_id"
     t.integer  "carts_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["books_id"], name: "index_cart_items_on_books_id"
-    t.index ["carts_id"], name: "index_cart_items_on_carts_id"
+    t.index ["books_id"], name: "index_cart_items_on_books_id", using: :btree
+    t.index ["carts_id"], name: "index_cart_items_on_carts_id", using: :btree
   end
 
-  create_table "carts", force: :cascade do |t|
+  create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 20170323000749) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end

@@ -51,4 +51,10 @@
       font-size: 1.1em;
     }
   }
+  a {
+    color: black;
+    &:hover {
+      color: black;
+    }
+  }  
 }

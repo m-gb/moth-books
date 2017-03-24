@@ -23,7 +23,7 @@
   <div class="book_info col-md-12 jumbotron">
       <h2>Book Information</h2>
       <ul>
-        <li><strong>Author:</strong> <%= @book.author %></li>
+        <li><strong>Author:</strong> <%= link_to @book.author, '#' %></li>
         <li><strong>Year:</strong> <%= @book.year %></li>
       </ul>
   </div>

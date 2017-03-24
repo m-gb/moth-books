@@ -1,18 +1,2 @@
-<div class="main">
-  <div class="jumbotron">
-    <h2><%= @category.name %></h2>
-    <ul class="book_list">
-      <% @books.each do |b| %>
-        <li class="book_item">
-          <%= link_to image_tag(b.image_filename, alt: "#{b.title} Image"), book_path(b) %>
-          <div class="book_text">
-            <div class="book_title"><%= link_to b.title, book_path(b) %></div>
-            <div class="book_author"><%= b.author %></div>
-            <div class="book_price">$<%= b.price %></div>
-            <%= link_to "Add to cart", root_path, class: "btn btn-lg btn-info" %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
+<%= provide(:title_list, @category.name) %>
+<%= render 'shared/book_list' %>
