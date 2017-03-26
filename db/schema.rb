@@ -10,32 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324000154) do
+ActiveRecord::Schema.define(version: 20170326150248) do
+
+  create_table "authors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
-    t.string   "author"
     t.decimal  "price",                             precision: 4, scale: 2
-    t.integer  "category_id"
     t.integer  "year"
     t.text     "description",    limit: 4294967295
     t.datetime "created_at",                                                null: false
     t.datetime "updated_at",                                                null: false
     t.string   "image_filename"
-  end
-
-  create_table "cart_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "books_id"
-    t.integer  "carts_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["books_id"], name: "index_cart_items_on_books_id", using: :btree
-    t.index ["carts_id"], name: "index_cart_items_on_carts_id", using: :btree
-  end
-
-  create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "author_id"
+    t.integer  "category_id"
+    t.index ["author_id"], name: "index_books_on_author_id", using: :btree
+    t.index ["category_id"], name: "index_books_on_category_id", using: :btree
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -61,4 +55,6 @@ ActiveRecord::Schema.define(version: 20170324000154) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "books", "authors"
+  add_foreign_key "books", "categories"
 end
