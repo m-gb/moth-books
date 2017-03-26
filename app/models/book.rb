@@ -1,4 +1,4 @@
 class Book < ApplicationRecord
   belongs_to :category
-  has_many :cart_items
+  belongs_to :author
 end

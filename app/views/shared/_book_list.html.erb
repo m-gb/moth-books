@@ -6,7 +6,7 @@
         <%= link_to image_tag(b.image_filename, alt: "#{b.title} Image", size: 150), book_path(b) %>
         <div class="category_book_text">
           <div class="category_book_title"><%= link_to b.title, book_path(b) %></div>
-          <div class="category_book_author"><%= link_to b.author, '#' %></div>
+          <div class="category_book_author"><%= link_to Author.find(b.author_id).name, author_path(Author.find(b.author_id)) %></div>
           <div class="category_book_price">$<%= b.price %></div>
           <%= link_to "Add to cart", root_path, class: "btn btn-lg btn-info" %>
         </div>

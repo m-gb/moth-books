@@ -1,7 +1,12 @@
 require 'test_helper'
 
 class AuthorTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  def setup
+    @author = authors(:tolkien)
+  end
+
+  test "should be valid" do
+    assert @author.save
+  end
 end

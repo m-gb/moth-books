@@ -1,14 +1,17 @@
 lotr:
   title: The Lord of the Rings Trilogy
-  author: michael@example.com
-  password_digest: <%= User.digest('password') %>
+  price: 10.99
+  year: 1954
+  image_filename: books/the_lord_of_the_rings_trilogy.png
+  description: This is the lord of the rings book description.
+  author: tolkien
+  category: fantasy
 
-id: 1, title: "The Lord of the Rings Trilogy", author: "J.R.R. Tolkien",
-            category_id: Category.find(1).id, year: 1954,
-            image_filename: "books/the_lord_of_the_rings_trilogy.png",
-            price: 10.99
-
-archer:
-  name: Sterling Archer
-  email: duchess@example.gov
-  password_digest: <%= User.digest('password') %>
+doctorsleep:
+  title: Doctor Sleep
+  price: 14.95
+  year: 2013
+  image_filename: books/doctor_sleep.png
+  description: This is the doctor sleep book description.
+  author: stephen
+  category: horror

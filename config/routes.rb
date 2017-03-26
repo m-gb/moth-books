@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   get    '/help',    to: 'static_pages#help'
   get    '/about',   to: 'static_pages#about'
   get    '/contact', to: 'static_pages#contact'
+  resources :authors, only: [:show]
   resources :books, only: [:index, :show]
-  resources :carts
   resources :categories, only: [:show]
   devise_for :users
 end

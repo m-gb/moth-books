@@ -1,7 +1,5 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+tolkien:
+  name: J.R.R. Tolkien
 
-one:
-  name: MyString
-
-two:
-  name: MyString
+stephen:
+  name: Stephen King

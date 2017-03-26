@@ -55,6 +55,7 @@ img {
   li a {
   color: white;
   padding-top: 30px;
+  padding-bottom: 30px;
   font-size: 1.1em;
     &:hover {
       text-decoration: underline;
@@ -66,6 +67,7 @@ img {
   ul li a {
     color: black !important;
     padding-top: 0px !important;
+    padding-bottom: 0px !important;
     &:hover {
       text-decoration: none !important;
     }

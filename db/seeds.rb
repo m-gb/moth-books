@@ -8,6 +8,8 @@
 
 require 'csv'
 
+Book.delete_all
+
 Category.delete_all
 Category.create id: 1, name: "Fantasy"
 Category.create id: 2, name: "Science Fiction"
@@ -21,7 +23,6 @@ Author.create id: 3, name: "Stephen King"
 Author.create id: 4, name: "Dean Koontz"
 Author.create id: 5, name: "Agatha Christie"
 
-Book.delete_all
 Book.create id: 1, title: "The Lord of the Rings Trilogy", author_id: Author.find_by(name: "J.R.R. Tolkien").id,
             category_id: Category.find_by(name: "Fantasy").id, year: 1954,
             image_filename: "books/the_lord_of_the_rings_trilogy.png",

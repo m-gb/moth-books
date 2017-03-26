@@ -3,10 +3,10 @@ require 'test_helper'
 class CategoryTest < ActiveSupport::TestCase
 
   def setup
-    @category = Category.create id: 1, name: "Fantasy"
+    @category = categories(:fantasy)
   end
 
   test "should be valid" do
-    assert @category.valid?
+    assert @category.save
   end
 end
