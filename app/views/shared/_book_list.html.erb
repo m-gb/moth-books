@@ -1,5 +1,8 @@
 <div class="jumbotron main">
   <h2><%= yield(:title_list) %></h2>
+
+  <%= will_paginate @books, param_name: 'books_page' %>
+
   <ul class="category_book_list">
     <% @books.each do |b| %>
       <li class="category_book_item">
@@ -13,4 +16,7 @@
       </li>
     <% end %>
   </ul>
+
+  <%= will_paginate @books, param_name: 'books_page' %>
+
 </div>

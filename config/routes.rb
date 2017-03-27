@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   resources :authors, only: [:show]
   resources :books, only: [:index, :show]
   resources :categories, only: [:show]
+  resources :carts, only: [:show]
+  resources :cart_items, only: [:create, :update, :destroy]
   devise_for :users
 end

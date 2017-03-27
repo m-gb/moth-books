@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  book: lotr
+  cart: one
+  unit_price: 10.99
+  quantity: 1
+  total_price: 10.99
+
+two:
+  book: doctorsleep
+  cart: two
+  unit_price: 14.95
+  quantity: 2
+  total_price: 29.90

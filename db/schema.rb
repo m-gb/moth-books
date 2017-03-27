@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170326150248) do
+ActiveRecord::Schema.define(version: 20170326234253) do
 
   create_table "authors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -30,6 +30,26 @@ ActiveRecord::Schema.define(version: 20170326150248) do
     t.integer  "category_id"
     t.index ["author_id"], name: "index_books_on_author_id", using: :btree
     t.index ["category_id"], name: "index_books_on_category_id", using: :btree
+  end
+
+  create_table "cart_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "book_id"
+    t.integer  "cart_id"
+    t.decimal  "unit_price",  precision: 6, scale: 2
+    t.integer  "quantity"
+    t.decimal  "total_price", precision: 6, scale: 2
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["book_id"], name: "index_cart_items_on_book_id", using: :btree
+    t.index ["cart_id"], name: "index_cart_items_on_cart_id", using: :btree
+  end
+
+  create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.decimal  "total",      precision: 6, scale: 2
+    t.decimal  "shipping",   precision: 4, scale: 2
+    t.decimal  "subtotal",   precision: 6, scale: 2
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -57,4 +77,6 @@ ActiveRecord::Schema.define(version: 20170326150248) do
 
   add_foreign_key "books", "authors"
   add_foreign_key "books", "categories"
+  add_foreign_key "cart_items", "books"
+  add_foreign_key "cart_items", "carts"
 end
