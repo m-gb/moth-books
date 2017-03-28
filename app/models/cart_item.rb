@@ -23,7 +23,7 @@ class CartItem < ApplicationRecord
 private
   def book_present
     if book.nil?
-      errors.add(:book, "is not valid or is not active.")
+      errors.add(:book, "is not a valid book.")
     end
   end
 

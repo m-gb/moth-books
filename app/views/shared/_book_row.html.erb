@@ -1,0 +1,5 @@
+<%= form_for cart_item, remote: true do |f| %>
+    <%= f.hidden_field :quantity, value: 1 %>
+    <%= f.hidden_field :book_id, value: book.id %>
+    <%= f.submit "Add to Cart", class: "btn btn-lg btn-info" %>
+<% end %>

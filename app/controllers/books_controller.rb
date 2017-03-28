@@ -11,5 +11,6 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @cart_item = current_cart.cart_items.new
   end
 end

@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :books, only: [:index, :show]
   resources :categories, only: [:show]
   resources :carts, only: [:show]
-  resources :cart_items, only: [:create, :update, :destroy]
+  resources :cart_items, only: [:create, :update, :destroy], defaults: { format: 'js' }
   devise_for :users
 end
