@@ -1,28 +1,18 @@
-<div class="well">
-
-  <div class="row">
-    <div class="col-xs-8">
-      <h4><%= book.title %></h4>
-    </div>
-    <div class="col-xs-4">
-
-      <%= form_for cart_item, remote: true do |f| %>
-        <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency cart_item.unit_price %></span></h4>
-        <div class="row">
-          <div class="col-xs-4">
-            <%= f.number_field :quantity, value: cart_item.quantity.to_i, class: "form-control", min: 1 %>
-            <%= f.hidden_field :book_id, value: book.id %>
-          </div>
-          <div class="col-xs-8 text-right">
-            <div class="btn-group">
-              <%= f.submit "Update Quantity", class: "btn btn-primary" %>
-              <%= link_to "Delete", cart_item, { data: { confirm: "Are you sure you wish to delete the book '#{cart_item.book.title}' from your cart?" }, method: :delete, remote: true, class: "btn btn-danger" } %>
-            </div>
-          </div>
-        </div>
-        <h4 class="text-right">Total Price: <span style="color: green"><%= number_to_currency cart_item.total_price %></span></h4>
-      <% end %>
-    </div>
-
+<div class="row">
+  <div class="col-md-10">
+    <%= link_to image_tag(book.image_filename, alt: "#{book.title} Image", size: 100), book_path(book) %>
+    <%= link_to book.title, book_path(book) %>
+    /<%= link_to Author.find(book.author_id).name, author_path(Author.find(book.author_id)) %>
+  </div>
+  <div class="col-md-2">
+    <%= form_for cart_item, remote: true do |f| %>
+      <h4 class="text-right">Unit Price: <span style="color: #ff8080"><%= number_to_currency cart_item.unit_price %></span></h4>
+      <div class="text-center">
+        <%= f.hidden_field :book_id, value: book.id %>
+        <%= f.number_field :quantity, value: cart_item.quantity.to_i, class: "form-control", min: 1 %>
+        <%= f.submit "Update Quantity", class: "btn btn-info" %>
+        <%= link_to "Delete", cart_item, method: :delete, remote: true, class: "btn btn-default" %>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -8,11 +8,14 @@
   </div>
 <% end %>
 <% if @cart_items.size == 0 %>
-  <p class="text-center">
-    There are no items in your shopping cart.  Please <%= link_to "go back", root_path %> and add some items to your cart.
-  </p>
+  <span>There are no items in your shopping cart.  Please go <%= link_to "back", root_path %> and add some items to your cart.</span>
 <% else %>
   <% @cart_items.each do |cart_item| %>
     <%= render 'carts/cart_row', book: cart_item.book, cart_item: cart_item, show_total: true %>
   <% end %>
+  <div class="text-right">
+    <p>Subtotal: <%= number_to_currency current_cart.subtotal %></p>
+    <p>Shipping: <%= number_to_currency current_cart.shipping %></p>
+    <p>Total: <span style="color: #ff8080"><%= number_to_currency current_cart.total %></span></p>
+  </div>
 <% end %>

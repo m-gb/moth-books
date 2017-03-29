@@ -28,15 +28,15 @@
 
             </ul>
           </li>
-          <li><%= link_to image_tag("cart_white", onmouseover: "this.src='/assets/cart_yellow.png'",
-                                        onmouseout: "this.src='/assets/cart_white.png'",
-                                        alt: "Cart"),
-                                        cart_path(current_cart.id), id: "cart" %></li>
-          <li class="cart-text"><%= render 'layouts/cart_text' %></li>
         <% else %>
           <li><%= link_to "Sign up", new_user_registration_path, class: 'navbar-link'  %></li>
           <li><%= link_to "Login", new_user_session_path, class: 'navbar-link'  %></li>
         <% end %>
+        <li><%= link_to image_tag("cart_white", onmouseover: "this.src='/assets/cart_yellow.png'",
+                                      onmouseout: "this.src='/assets/cart_white.png'",
+                                      alt: "Cart"),
+                                      cart_path(current_cart.id), id: "cart" %></li>
+        <li class="cart-text"><%= render 'layouts/cart_text' %></li>
       </ul>
     </nav>
   </div>

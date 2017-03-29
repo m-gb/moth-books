@@ -46,10 +46,10 @@ ActiveRecord::Schema.define(version: 20170326234253) do
 
   create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.decimal  "total",      precision: 6, scale: 2
-    t.decimal  "shipping",   precision: 4, scale: 2
     t.decimal  "subtotal",   precision: 6, scale: 2
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.decimal  "shipping",   precision: 4, scale: 2, default: "2.5"
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
