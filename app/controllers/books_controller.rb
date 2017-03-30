@@ -2,9 +2,9 @@ class BooksController < ApplicationController
 
   def index
     @books = if params[:term]
-      Book.where('title LIKE :search', search: "%#{params[:term]}%").paginate(page: params[:books_page], per_page: 8).order("author_id")
+      Book.joins(:author).where("authors.name LIKE :q OR books.title LIKE :q", q: "%#{params[:term]}%").paginate(page: params[:books_page], per_page: 8).order("authors.name")
     else
-      Book.paginate(page: params[:page]).order("author_id")
+      Book.joins(:author).paginate(page: params[:books_page]).order("authors.name")
     end
     @cart_item = current_cart.cart_items.new
   end
