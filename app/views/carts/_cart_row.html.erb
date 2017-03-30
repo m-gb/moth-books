@@ -1,8 +1,13 @@
 <div class="row">
   <div class="col-md-10">
-    <%= link_to image_tag(book.image_filename, alt: "#{book.title} Image", size: 100), book_path(book) %>
-    <%= link_to book.title, book_path(book) %>
-    /<%= link_to Author.find(book.author_id).name, author_path(Author.find(book.author_id)) %>
+    <div class=col-md-2>
+      <%= link_to image_tag(book.image_filename, alt: "#{book.title} Image", size: 100), book_path(book) %>
+    </div>
+    <div class="col-md-10">
+      <p>Title: <%= link_to book.title, book_path(book) %></p>
+      <p>Author: <%= link_to Author.find(book.author_id).name, author_path(Author.find(book.author_id)) %></p>
+      <p>Category: <%= link_to Category.find(book.category_id).name, category_path(Category.find(book.category_id)) %></p>
+    </div>
   </div>
   <div class="col-md-2">
     <%= form_for cart_item, remote: true do |f| %>
@@ -10,9 +15,9 @@
       <div class="text-center">
         <%= f.hidden_field :book_id, value: book.id %>
         <%= f.number_field :quantity, value: cart_item.quantity.to_i, class: "form-control", min: 1 %>
-        <%= f.submit "Update Quantity", class: "btn btn-info" %>
-        <%= link_to "Delete", cart_item, method: :delete, remote: true, class: "btn btn-default" %>
+        <%= f.submit "Update Quantity", class: "btn btn-info", style: "margin-bottom: 15px" %>
       </div>
+      <%= link_to "Delete", cart_item, method: :delete, remote: true, class: "btn btn-default", style: "float: right" %>
     <% end %>
   </div>
 </div>
