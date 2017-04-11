@@ -17,7 +17,7 @@
         <%= f.number_field :quantity, value: cart_item.quantity.to_i, class: "item_quantity form-control", min: 1 %>
         <%= f.submit "Update", class: "item_update btn btn-info" %>
       </div>
-      <%= link_to "Delete", cart_item, method: :delete, remote: true, class: "btn btn-default", style:"float:right" %>
+      <%= link_to "Remove", cart_item, method: :delete, remote: true, class: "btn btn-default", style:"float:right" %>
     <% end %>
   </div>
 </div>
