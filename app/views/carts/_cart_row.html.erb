@@ -14,10 +14,10 @@
       <h4 class="text-right">Unit Price: <span style="color: #ff8080"><%= number_to_currency cart_item.unit_price %></span></h4>
       <div class="text-center">
         <%= f.hidden_field :book_id, value: book.id %>
-        <%= f.number_field :quantity, value: cart_item.quantity.to_i, class: "form-control", min: 1 %>
-        <%= f.submit "Update Quantity", class: "btn btn-info", style: "margin-bottom: 15px" %>
+        <%= f.number_field :quantity, value: cart_item.quantity.to_i, class: "item_quantity form-control", min: 1 %>
+        <%= f.submit "Update", class: "item_update btn btn-info" %>
       </div>
-      <%= link_to "Delete", cart_item, method: :delete, remote: true, class: "btn btn-default", style: "float: right" %>
+      <%= link_to "Delete", cart_item, method: :delete, remote: true, class: "btn btn-default", style:"float:right" %>
     <% end %>
   </div>
 </div>
