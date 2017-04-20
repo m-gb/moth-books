@@ -18,9 +18,10 @@
   <div class="text-right">
     <p>Subtotal: <%= number_to_currency current_cart.subtotal %></p>
     <p>Shipping: <%= number_to_currency current_cart.shipping %></p>
-    <p>Total: <span style="color: #ff8080"><%= number_to_currency current_cart.total %></span></p>
+    <p>Total: <span style="color: darkorchid"><%= number_to_currency current_cart.total %></span></p>
     <div class="cart_checkout">
       <%= link_to 'Checkout', new_order_path, class: "cart_checkout_button btn btn-lg btn-info" %>
+      <%= link_to 'Continue shopping', root_path, class: "cart_checkout_button btn btn-lg btn-default", style: "float:left" %>
     </div>
   </div>
 <% end %>

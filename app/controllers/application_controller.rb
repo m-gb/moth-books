@@ -12,11 +12,12 @@ class ApplicationController < ActionController::Base
           value: @cart.id,
           expires: 1.day.from_now
         }
-        @cart
       end
+      @cart
     else
       @cart = Cart.create
       session[:cart_id] = @cart.id
+      @cart
     end
   end
 end
