@@ -3,7 +3,6 @@ class CartItemsController < ApplicationController
     @cart = current_cart
     @cart_item = @cart.cart_items.new(cart_item_params)
     @cart.save
-    session[:cart_id] = @cart.id
   end
 
   def update

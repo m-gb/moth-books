@@ -1,5 +1,6 @@
 class Cart < ApplicationRecord
   has_many :cart_items
+  has_one :order
 
   before_save :update_values
 
@@ -26,5 +27,4 @@ private
     self[:subtotal] = subtotal
     self[:total] = total
   end
-
 end
