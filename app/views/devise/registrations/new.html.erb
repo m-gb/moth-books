@@ -8,7 +8,7 @@
         <%= f.email_field :email, autofocus: true, class: "form-control" %>
         <%= f.label :password %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
         <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
         <%= f.label :password_confirmation %>

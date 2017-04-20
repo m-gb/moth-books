@@ -1,0 +1,25 @@
+<%= provide(:title, 'Order summary') %>
+<div class="main row">
+  <div class="col-md-8 jumbotron login_box">
+    <div class="col-md-6">
+      <h3>Already a member?</h3>
+      <%= form_for(:user, url: session_path(:user)) do |f| %>
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+        <%= f.submit "Log in", class: "btn btn-info" %>
+        <%= link_to "Forgot your password?", new_password_path(:user) %><br />
+      <% end %>
+    </div>
+    <div class="col-md-6">
+    <h3 class="new_member">New member?</h3>
+    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-info" %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="jumbotron order_summary">
+      <h3>Order summary</h3>
+    </div>
+  </div>
+</div>

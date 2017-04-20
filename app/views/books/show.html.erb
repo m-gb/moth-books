@@ -4,7 +4,7 @@
     <strong>Category: </strong><%= link_to Category.find(@book.category_id).name, category_path(Category.find(@book.category_id)) %>
   </div>
     <div class="col-md-9 jumbotron">
-      <div class="book_image col-md-4">
+      <div class="col-md-4">
         <%= image_tag(@book.image_filename, alt: "#{@book.title} Image") %>
       </div>
       <div class="book_description col-md-8">

@@ -5,4 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :orders
+
+  # Skips individual validations during signup. 
+  attr_accessor :skip_info
+  validates :name, presence: true, length: { maximum: 50 }, unless: :skip_info
+  validates :address, presence: true, length: { maximum: 255 }, unless: :skip_info
+  validates :city,  presence: true, length: { maximum: 50 }, unless: :skip_info
+  validates :zip,  presence: true, numericality: { greater_than: 1000 }, unless: :skip_info
+  validates :country,  presence: true,
+                       inclusion: { in: %w{Germany Austria Switzerland Belgium Netherlands France Spain Italy Poland} },
+                       unless: :skip_info
+
 end
