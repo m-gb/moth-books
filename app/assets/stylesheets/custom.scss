@@ -13,7 +13,7 @@
 
 body {
   padding-top: 100px;
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
   background-color: #f0f0f0;
 }
 
@@ -45,6 +45,12 @@ img {
   }
 }
 
+::selection {
+  background: #5bc0de; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #5bc0de; /* Gecko Browsers */
+}
 /* header */
 
 .navbar-inverse {

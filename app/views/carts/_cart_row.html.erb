@@ -3,15 +3,16 @@
     <div class=col-md-2>
       <%= link_to image_tag(book.image_filename, alt: "#{book.title} Image", size: 100), book_path(book) %>
     </div>
-    <div class="col-md-10">
-      <p>Title: <%= link_to book.title, book_path(book) %></p>
-      <p>Author: <%= link_to Author.find(book.author_id).name, author_path(Author.find(book.author_id)) %></p>
-      <p>Category: <%= link_to Category.find(book.category_id).name, category_path(Category.find(book.category_id)) %></p>
+    <div class="col-md-10 cart_item_info">
+      <p><span>Title: </span><%= link_to book.title, book_path(book) %></p>
+      <p><span>Author: </span><%= link_to Author.find(book.author_id).name, author_path(Author.find(book.author_id)) %></span></p>
+      <p><span>Category: </span><%= link_to Category.find(book.category_id).name, category_path(Category.find(book.category_id)) %></span></p>
+      <p><span>Unit Price: </span><%= number_to_currency cart_item.unit_price %></p>
     </div>
   </div>
   <div class="col-md-2">
     <%= form_for cart_item, remote: true do |f| %>
-      <h4 class="text-right">Unit Price: <span style="color: darkorchid"><%= number_to_currency cart_item.unit_price %></span></h4>
+      <h4 class="text-right"><span style="color: darkorchid"><%= number_to_currency cart_item.total_price %></span></h4>
       <div class="col-md-7 col-md-offset-6">
         <%= f.hidden_field :book_id, value: book.id %>
         <%= f.number_field :quantity, value: cart_item.quantity.to_i, class: "item_quantity form-control", min: 1 %>

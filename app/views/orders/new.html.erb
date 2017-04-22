@@ -1,25 +1,41 @@
 <%= provide(:title, 'Order summary') %>
 <div class="main row">
-  <div class="col-md-8 jumbotron login_box">
+  <div class="col-md-9 jumbotron order_address">
+    <h2>Shipping information:</h2>
     <div class="col-md-6">
-      <h3>Already a member?</h3>
-      <%= form_for(:user, url: session_path(:user)) do |f| %>
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
-        <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-        <%= f.submit "Log in", class: "btn btn-info" %>
-        <%= link_to "Forgot your password?", new_password_path(:user) %><br />
-      <% end %>
-    </div>
-    <div class="col-md-6">
-    <h3 class="new_member">New member?</h3>
-    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-info" %>
+    <%= form_for(@user, url: order_complete_path) do |f| %>
+      <%= render 'shared/error_messages', object: @user %>
+      <%= f.label "Full name" %>
+      <%= f.text_field :name, autofocus: true, class: "form-control" %>
+      <%= f.label :address %>
+      <%= f.text_field :address, class: "form-control" %>
+      <%= f.label :city %>
+      <%= f.text_field :city, class: "form-control" %>
+      <%= f.label "Zip code" %>
+      <%= f.text_field :zip, class: "form-control" %>
+      <%= f.label :country %>
+      <%= f.select :country, ['Germany','Austria','Belgium','France','Italy','Netherlands','Poland','Spain','Switzerland'], class: "form-control" %>
+      <%= f.submit "Complete order", class: "btn btn-info" %>
+    <% end %>
     </div>
   </div>
-  <div class="col-md-4">
-    <div class="jumbotron order_summary">
-      <h3>Order summary</h3>
+  <div class="col-md-3 order_summary">
+    <div class="jumbotron">
+      <h4>Order summary</h4>
+      <ul>
+        <% @cart.cart_items.each do |cart_item| %>
+          <li>
+              <span class="order_title"><%= cart_item.book.title %></span>
+              <span class="order_quantity">x<%= cart_item.quantity %></span>
+              <p class="order_price"><%= number_to_currency cart_item.total_price %></p>
+          </li>
+        <% end %>
+      </ul>
+      <div class="order_payment">
+        <p>Subtotal: <%= number_to_currency current_cart.subtotal %></p>
+        <p>Shipping: <%= number_to_currency current_cart.shipping %></p>
+        <p>Total: <span class="order_total"><%= number_to_currency current_cart.total %></span></p>
+      </div>
     </div>
   </div>
 </div>

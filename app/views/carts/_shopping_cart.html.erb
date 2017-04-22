@@ -12,7 +12,7 @@
 <% else %>
   <% @cart_items.each do |cart_item| %>
     <div class="well">
-      <%= render 'carts/cart_row', book: cart_item.book, cart_item: cart_item, show_total: true %>
+      <%= render 'carts/cart_row', book: cart_item.book, cart_item: cart_item %>
     </div>
   <% end %>
   <div class="text-right">
@@ -21,7 +21,7 @@
     <p>Total: <span style="color: darkorchid"><%= number_to_currency current_cart.total %></span></p>
     <div class="cart_checkout">
       <%= link_to 'Checkout', new_order_path, class: "cart_checkout_button btn btn-lg btn-info" %>
-      <%= link_to 'Continue shopping', root_path, class: "cart_checkout_button btn btn-lg btn-default", style: "float:left" %>
+      <%= link_to 'Continue shopping', root_path, class: "cart_continue_button btn btn-lg btn-default" %>
     </div>
   </div>
 <% end %>
