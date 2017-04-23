@@ -10,7 +10,8 @@ class OrdersController < ApplicationController
     @cart = Cart.find(current_cart.id)
     if @user.update_attributes(user_params)
       Order.create(user_id: @user.id, cart_id: @cart.id)
-      render 'complete'
+      session.delete :cart_id
+      cookies.delete :cart_id
     else
       render 'new'
     end

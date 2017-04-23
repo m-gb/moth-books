@@ -22,23 +22,10 @@
     font-weight: bold;
   }
 }
-.book_price {
-  margin-left: -5px;
-  margin-right: -15px;
-  h2 {
-    color: darkorchid;
-    font-size: 2em;
-    font-weight: bold;
-  }
-  p {
-    color: black;
-    font-size: 1em !important;
-  }
-}
 .book_info {
-  margin-top: -20px;
-  h2 {
+  h4 {
     font-weight: bold;
+    border-bottom: 1px solid #eaeaea;
   }
   ul {
     margin-top: 0px;
@@ -54,5 +41,16 @@
     &:hover {
       color: black;
     }
+  }
+}
+.book_price {
+  h2 {
+    color: darkorchid;
+    font-size: 2em;
+    font-weight: bold;
+  }
+  p {
+    color: black;
+    font-size: 1em !important;
   }
 }

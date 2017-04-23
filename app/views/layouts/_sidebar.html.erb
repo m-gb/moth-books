@@ -1,0 +1,8 @@
+<div class="col-md-2 sidebar">
+  <ul class="jumbotron nav nav-sidebar">
+    <h2>Categories</h2>
+    <% for c in Category.all %>
+      <li><%= link_to c.name, category_path(c), class: "navbar-link" %></li>
+    <% end %>
+  </ul>
+</div>

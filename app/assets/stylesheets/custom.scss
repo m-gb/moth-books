@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/*mixins, variables, etc. */
+/* mixins, variables, etc. */
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -33,6 +33,38 @@ img {
 .jumbotron {
   background-color: white;
 }
+
+.sidebar {
+  .jumbotron {
+    list-style: none;
+    padding-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    h2 {
+      border-bottom: 1px solid #cacaca;
+      color: black;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 0px;
+      padding: 10px;
+    }
+    li {
+      border-bottom: 1px solid #cacaca;
+      a {
+        font-size: 1.4rem;
+        color: black;
+        &:hover {
+          color: black;
+        }
+      }
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
 
 .main {
   h2 {

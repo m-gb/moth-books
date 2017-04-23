@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420181805) do
+ActiveRecord::Schema.define(version: 20170423205828) do
 
   create_table "authors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -85,6 +85,8 @@ ActiveRecord::Schema.define(version: 20170420181805) do
     t.string   "city"
     t.integer  "zip"
     t.string   "country"
+    t.integer  "cart_id"
+    t.index ["cart_id"], name: "index_users_on_cart_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -95,4 +97,5 @@ ActiveRecord::Schema.define(version: 20170420181805) do
   add_foreign_key "cart_items", "carts"
   add_foreign_key "orders", "carts"
   add_foreign_key "orders", "users"
+  add_foreign_key "users", "carts"
 end

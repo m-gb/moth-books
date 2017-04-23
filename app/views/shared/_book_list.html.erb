@@ -1,4 +1,5 @@
-<div class="jumbotron main">
+<%= render 'layouts/sidebar' %>
+<div class="col-md-10 jumbotron main">
   <h2><%= yield(:title_list) %></h2>
 
   <%= will_paginate @books, param_name: 'books_page' %>

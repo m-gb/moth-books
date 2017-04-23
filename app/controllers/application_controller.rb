@@ -7,13 +7,6 @@ class ApplicationController < ActionController::Base
       @cart = Cart.find(cookies[:cart_id])
     elsif session[:cart_id]
       @cart = Cart.find(session[:cart_id])
-      if user_signed_in?
-        cookies[:cart_id] = {
-          value: @cart.id,
-          expires: 1.day.from_now
-        }
-      end
-      @cart
     else
       @cart = Cart.create
       session[:cart_id] = @cart.id

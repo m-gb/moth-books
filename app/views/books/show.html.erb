@@ -1,15 +1,26 @@
 <% provide(:title, @book.title) %>
-<div class="main row">
+<div class="main">
   <div class="book_category">
     <strong>Category: </strong><%= link_to Category.find(@book.category_id).name, category_path(Category.find(@book.category_id)) %>
   </div>
-    <div class="col-md-9 jumbotron">
-      <div class="col-md-4">
-        <%= image_tag(@book.image_filename, alt: "#{@book.title} Image") %>
-      </div>
-      <div class="book_description col-md-8">
-        <h2><%= @book.title %></h2>
-        <%= @book.description %>
+  <div class="row">
+    <%= render 'layouts/sidebar' %>
+    <div class="col-md-7">
+      <div class="jumbotron row">
+        <div class="col-md-4">
+          <%= image_tag(@book.image_filename, alt: "#{@book.title} Image") %>
+        </div>
+        <div class="book_description col-md-8">
+          <h2><%= @book.title %></h2>
+          <%= @book.description %>
+          <div class="book_info">
+              <h4>Book Information</h4>
+              <ul>
+                <li><strong>Author:</strong> <%= link_to Author.find(@book.author_id).name, author_path(Author.find(@book.author_id)) %></li>
+                <li><strong>Year:</strong> <%= @book.year %></li>
+              </ul>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-md-3">
@@ -19,12 +30,5 @@
         <%= render "shared/book_row", book: @book, cart_item: @cart_item %>
       </div>
     </div>
-
-  <div class="book_info col-md-12 jumbotron">
-      <h2>Book Information</h2>
-      <ul>
-        <li><strong>Author:</strong> <%= link_to Author.find(@book.author_id).name, author_path(Author.find(@book.author_id)) %></li>
-        <li><strong>Year:</strong> <%= @book.year %></li>
-      </ul>
   </div>
 </div>
