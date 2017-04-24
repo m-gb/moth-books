@@ -3,18 +3,18 @@
   <div class="col-md-9 jumbotron order_address">
     <h2>Shipping information:</h2>
     <div class="col-md-6">
-    <%= form_for(@user, url: order_complete_path) do |f| %>
-      <%= render 'shared/error_messages', object: @user %>
+    <%= form_for(current_user, url: new_order_path, method: :patch) do |f| %>
+      <%= render 'shared/error_messages', object: current_user %>
       <%= f.label "Full name" %>
-      <%= f.text_field :name, autofocus: true, class: "form-control" %>
+      <%= f.text_field :name, autofocus: true, class: "form-control", value: current_user.name %>
       <%= f.label :address %>
-      <%= f.text_field :address, class: "form-control" %>
+      <%= f.text_field :address, class: "form-control", value: current_user.address %>
       <%= f.label :city %>
-      <%= f.text_field :city, class: "form-control" %>
+      <%= f.text_field :city, class: "form-control", value: current_user.city %>
       <%= f.label "Zip code" %>
-      <%= f.text_field :zip, class: "form-control" %>
+      <%= f.text_field :zip, class: "form-control", value: current_user.zip %>
       <%= f.label :country %>
-      <%= f.select :country, ['Germany','Austria','Belgium','France','Italy','Netherlands','Poland','Spain','Switzerland'], class: "form-control" %>
+      <%= f.select :country, ['Germany','Austria','Belgium','France','Italy','Netherlands','Poland','Spain','Switzerland'], class: "form-control", value: current_user.country %>
       <%= f.submit "Complete order", class: "btn btn-info" %>
     <% end %>
     </div>
@@ -23,7 +23,7 @@
     <div class="jumbotron">
       <h4>Order summary</h4>
       <ul>
-        <% @cart.cart_items.each do |cart_item| %>
+        <% current_cart.cart_items.each do |cart_item| %>
           <li>
               <span class="order_title"><%= cart_item.book.title %></span>
               <span class="order_quantity">x<%= cart_item.quantity %></span>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get    '/about',          to: 'static_pages#about'
   get    '/contact',        to: 'static_pages#contact'
   get    '/order_complete', to: 'orders#complete'
-  patch   '/order_complete', to: 'orders#complete'
+  patch  '/orders/new',      to: 'orders#create'
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
   resources :authors,    only: [:show]
   resources :books,      only: [:index, :show]
