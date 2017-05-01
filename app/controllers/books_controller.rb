@@ -2,7 +2,7 @@ class BooksController < ApplicationController
 
   def index
     @books = if params[:term]
-      Book.joins(:author).where("authors.name LIKE :q OR books.title LIKE :q", q: "%#{params[:term]}%").paginate(page: params[:books_page], per_page: 8).order("authors.name")
+      Book.joins(:author).where("authors.name LIKE :query OR books.title LIKE :query", query: "%#{params[:term]}%").paginate(page: params[:books_page], per_page: 8).order("authors.name")
     else
       Book.joins(:author).paginate(page: params[:books_page]).order("authors.name")
     end

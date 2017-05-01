@@ -1,1 +1,15 @@
-<h1>Your Orders</h1>
+<%= provide(:title, 'Your orders') %>
+<div class="jumbotron main">
+  <h2>Your orders</h2>
+  <div class="orders_index">
+    <% if @orders.size == 0 %>
+      <span>You don't have any orders.  Please go to <%= link_to "your cart", cart_path %> and place an order.</span>
+    <% else %>
+      <% @orders.each do |order| %>
+        <div class="well">
+          <%= link_to '#', order_path(order.id) %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
