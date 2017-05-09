@@ -8,7 +8,7 @@
   </div>
 <% end %>
 <% if @cart_items.size == 0 %>
-  <span>There are no items in your shopping cart.  Please go <%= link_to "back", root_path %> and add some items to your cart.</span>
+  <span>Your cart is empty. Please go <%= link_to "back", root_path %> and add some items to your cart.</span>
 <% else %>
   <% @cart_items.each do |cart_item| %>
     <div class="well">

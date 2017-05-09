@@ -1,30 +1,35 @@
 <div class="row">
   <%= render 'layouts/sidebar' %>
   <div class="col-md-10 jumbotron main">
-    <div id="bookCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <% @books.each_with_index do |book, index| %>
-          <%= content_tag :li, image_tag(book.image_filename), data: {target: '#bookCarousel', slide_to: index}, class: (index == 0 ? 'active' : nil) %>
-        <% end %>
-      </ol>
+    <h2>Bestsellers</h2>
+    <div id="bookCarousel" class="carousel carousel-wrapper slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <% @books.each_with_index do |book, index| %> <!-- Index is required to set the active item in the carousel  -->
+            <li data-target="#bookCarousel" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
+          <% end %>
+        </ol>
 
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-        <% @books.each_with_index do |book, index| %>
-          <%=  content_tag :div, image_tag(book.image_filename, size: 160), class: (index == 0 ? 'item active' : 'item') %>
-        <% end %>
-      </div>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <% @books.each_with_index do |book, index| %>
+            <%=  link_to image_tag(book.image_filename, size: 160), book_path(book.id), class: (index == 0 ? 'item active' : 'item') %>
+          <% end %>
+        </div>
 
-      <!-- Left and right controls -->
-      <a class="left carousel-control" href="#bookCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#bookCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#bookCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#bookCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
     </div>
+    <h3>New arrivals</h3>
+      <ol>
+
+      </ol>
   </div>
 </div>

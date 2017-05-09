@@ -8,6 +8,7 @@
       <% @orders.each do |order| %>
         <div class="well">
           <%= link_to '#', order_path(order.id) %>
+          <%= Cart.find(order.cart_id).total %>
         </div>
       <% end %>
     <% end %>
