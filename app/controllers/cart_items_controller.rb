@@ -1,7 +1,13 @@
 class CartItemsController < ApplicationController
   def create
     @cart = current_cart
-    @cart_item = @cart.cart_items.new(cart_item_params)
+    existing_cart_item = @cart.cart_items.find_by(book_id: cart_item_params[:book_id])
+    if existing_cart_item
+      @cart_item = @cart.cart_items.find_by(book_id: cart_item_params[:book_id]).increment(:quantity)
+      @cart_item.save
+    else
+      @cart_item = @cart.cart_items.new(cart_item_params)
+    end
     @cart.save
   end
 
