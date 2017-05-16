@@ -1,1 +1,17 @@
 <h1>Your Order</h1>
+<div class="jumbotron">
+  <ul>
+    <% @cart.cart_items.each do |cart_item| %>
+      <li>
+          <span class="order_title"><%= cart_item.book.title %></span>
+          <span class="order_quantity">x<%= cart_item.quantity %></span>
+          <p class="order_price"><%= number_to_currency cart_item.total_price %></p>
+      </li>
+    <% end %>
+  </ul>
+  <div class="order_payment">
+    <p>Subtotal: <%= number_to_currency current_cart.subtotal %></p>
+    <p>Shipping: <%= number_to_currency current_cart.shipping %></p>
+    <p>Total: <span class="order_total"><%= number_to_currency current_cart.total %></span></p>
+  </div>
+</div>

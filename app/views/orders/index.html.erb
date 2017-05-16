@@ -16,9 +16,9 @@
       <tbody>
         <% @orders.each do |order| %>
           <tr>
-              <td><%= link_to "#{order.id}", order_path(order.id) %></td>
-              <td><%= "#{order.created_at.strftime("%d %b. %Y")}"%></td>
-              <td><%= number_to_currency Cart.find(order.cart_id).total %></td>
+            <td><%= link_to "#{order.id}", order_path(order.id) %></td>
+            <td><%= "#{order.created_at.strftime("%d %b. %Y")}"%></td>
+            <td><%= number_to_currency Cart.find(order.cart_id).total %></td>
           </tr>
         <% end %>
       </tbody>

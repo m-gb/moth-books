@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
 
   def complete
     @categories = []
-    Cart.find(current_user.cart_id).cart_items.each do |cart_item|
+    Cart.find(current_user.cart_id).cart_items.each do |cart_item| # Suggests books based on categories of last order's books.
       @categories << cart_item.book.category
     end
     @books = []
@@ -31,11 +31,11 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_user.orders 
+    @orders = current_user.orders
   end
 
   def show
-
+    @cart = Cart.find(Order.find(params[:id]).cart_id) # Returns a cart based on order id from the index page.
   end
 
   private
