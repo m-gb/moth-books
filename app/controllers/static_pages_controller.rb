@@ -28,6 +28,7 @@ class StaticPagesController < ApplicationController
     arrival_ids.each do |b_id|
       @arrivals << Book.find(b_id)
     end
+    @cart_item = current_cart.cart_items.new # Allows adding new arrivals to current cart. 
   end
 
   def help

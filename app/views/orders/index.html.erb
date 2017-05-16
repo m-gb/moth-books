@@ -5,12 +5,24 @@
     <% if @orders.size == 0 %>
       <span>You don't have any orders.  Please go to <%= link_to "your cart", cart_path %> and place an order.</span>
     <% else %>
-      <% @orders.each do |order| %>
-        <div class="well">
-          <%= link_to '#', order_path(order.id) %>
-          <%= Cart.find(order.cart_id).total %>
-        </div>
-      <% end %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Order Number</th>
+          <th>Date</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+              <td><%= link_to "#{order.id}", order_path(order.id) %></td>
+              <td><%= "#{order.created_at.strftime("%d %b. %Y")}"%></td>
+              <td><%= number_to_currency Cart.find(order.cart_id).total %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
     <% end %>
   </div>
 </div>
