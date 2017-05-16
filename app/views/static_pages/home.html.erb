@@ -29,6 +29,17 @@
     </div>
     <h3>New arrivals</h3>
       <ol>
+        <% @arrivals.each do |b| %>
+        <li class="category_book_item">
+          <%= link_to image_tag(b.image_filename, alt: "#{b.title} Image", size: 150), book_path(b) %>
+          <div class="category_book_text">
+            <div class="category_book_title"><%= link_to b.title, book_path(b) %></div>
+            <div class="category_book_author"><%= link_to Author.find(b.author_id).name, author_path(Author.find(b.author_id)) %></div>
+            <div class="category_book_price"><%= number_to_currency b.price %></div>
+          </div>
+        </li>
+        <% end %>
+
 
       </ol>
   </div>
