@@ -15,7 +15,7 @@
       <h4 class="text-right"><span style="color: darkorchid"><%= number_to_currency cart_item.total_price %></span></h4>
       <div class="col-md-7 col-md-offset-6">
         <%= f.hidden_field :book_id, value: book.id %>
-        <%= f.number_field :quantity, value: cart_item.quantity.to_i, class: "item_quantity form-control", min: 1 %>
+        <%= f.number_field :quantity, value: cart_item.quantity.to_i, onchange: "$('.item_update').submit();", class: "item_quantity form-control", min: 1 %>
         <%= f.submit "Update", class: "item_update btn btn-info" %>
       </div>
       <%= link_to "Remove", cart_item, method: :delete, remote: true, class: "item_remove btn btn-default" %>
