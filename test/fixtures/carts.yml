@@ -7,3 +7,8 @@ one:
 two:
   shipping: 1.10
   total: 31.00
+
+three:
+  shipping: 2.50
+  total: 10.00
+  updated_at: <%= 10.days.ago.to_s(:db) %>

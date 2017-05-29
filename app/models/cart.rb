@@ -20,6 +20,10 @@ class Cart < ApplicationRecord
     shipping + subtotal
   end
 
+  def self.unused_cart
+    where('updated_at < ? ', 1.week.ago ) 
+  end
+
 private
 
   def update_values
