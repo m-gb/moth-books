@@ -1,12 +1,13 @@
 class Users::SessionsController < Devise::SessionsController
   def create
     if user_signed_in?
-      if current_user.cart_id
+      if current_user.cart_id # check if user has a saved cart and save to cookies.
         cookies[:cart_id] = {
           value: current_user.cart_id,
           expires: 1.month.from_now
         }
       else
+        # get the session's cart_id and save to cookies.
         cookies[:cart_id] = {
           value: session[:cart_id],
           expires: 1.month.from_now
@@ -17,7 +18,7 @@ class Users::SessionsController < Devise::SessionsController
   end
   def destroy
     if user_signed_in?
-      current_user.update_attributes(cart_id: cookies[:cart_id])
+      current_user.update_attributes(cart_id: cookies[:cart_id]) # save the current cart to the user table
       cookies.delete :cart_id
     end
     super

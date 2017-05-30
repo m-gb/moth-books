@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :orders
+  belongs_to :cart
 
   # Skips individual validations during signup.
   attr_accessor :skip_info

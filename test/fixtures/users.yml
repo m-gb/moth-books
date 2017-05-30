@@ -1,3 +1,9 @@
 john:
   email: john@example.com
   encrypted_password: password
+  cart: one
+
+jack:
+  email: jack@example.com
+  encrypted_password: password
+  cart: three
