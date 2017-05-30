@@ -20,10 +20,17 @@ class Cart < ApplicationRecord
     shipping + subtotal
   end
 
-  def self.unused_cart
-    where('updated_at < ? ', 1.week.ago ) 
+  def self.really_old
+    where(updated_at: 1.year.ago..1.week.ago)
   end
 
+  def self.without_order
+    left_outer_joins(:order).where( orders: { id: nil } )
+  end
+
+  def self.cleanup
+    without_order.really_old.delete_all
+  end
 private
 
   def update_values
