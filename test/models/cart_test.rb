@@ -7,6 +7,22 @@ class CartTest < ActiveSupport::TestCase
     @user = users(:jack)
   end
 
+  test "should be valid" do
+    assert @cart.valid?
+  end
+
+  test "shipping should be 0" do # subtotal is higher than 20
+    assert_equal @cart.shipping, 0
+  end
+
+  test "subtotal should be correct" do # subtotal is cart_item one and four
+    assert_equal @cart.subtotal, 42.87
+  end
+
+  test "total should be correct" do
+    assert_equal @cart.total, 42.87
+  end
+
   test "Cart.associated_user should delete the cart_id reference" do
     @cart.associated_user
     assert_nil @user.reload.cart_id

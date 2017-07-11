@@ -7,6 +7,12 @@ class CategoryTest < ActiveSupport::TestCase
   end
 
   test "should be valid" do
-    assert @category.save
+    assert @category.valid?
   end
+
+  test "should require name" do
+    @category.name = nil
+    assert_not @category.valid?
+  end
+
 end

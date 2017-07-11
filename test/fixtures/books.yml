@@ -15,3 +15,12 @@ doctorsleep:
   description: This is the doctor sleep book description.
   author: stephen
   category: horror
+
+intensity:
+  title: intensity
+  price: 15.94
+  year: 1995
+  image_filename: books/intensity.png
+  description: This is the itensity book description.
+  author: dean
+  category: horror

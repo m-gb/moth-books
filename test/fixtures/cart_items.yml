@@ -13,3 +13,17 @@ two:
   unit_price: 14.95
   quantity: 2
   total_price: 29.90
+
+three:
+  book: intensity
+  cart: three
+  unit_price: 15.94
+  quantity: 2
+  total_price: 31.88
+
+four:
+  book: lotr
+  cart: three
+  unit_price: 10.99
+  quantity: 1
+  total_price: 10.99

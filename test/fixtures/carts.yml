@@ -1,18 +1,16 @@
 # with order and new and belongs to user john
 one:
-  shipping: 1.01
-  total: 12.00
-# without order and new
+  shipping: 2.5
+  updated_at: <%= 1.day.ago.to_s(:db) %>
+  # without order and new
 two:
-  shipping: 1.10
-  total: 31.00
+  shipping: 0
+  updated_at: <%= 1.day.ago.to_s(:db) %>
 # without order and really old and belongs to user jack
 three:
-  shipping: 2.50
-  total: 10.00
+  shipping: 0
   updated_at: <%= 10.days.ago.to_s(:db) %>
 # with order and really old
 four:
-  shipping: 2.50
-  total: 10.00
+  shipping: 2.5
   updated_at: <%= 10.days.ago.to_s(:db) %>

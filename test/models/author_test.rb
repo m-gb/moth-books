@@ -7,6 +7,12 @@ class AuthorTest < ActiveSupport::TestCase
   end
 
   test "should be valid" do
-    assert @author.save
+    assert @author.valid?
   end
+
+  test "should require name" do
+    @author.name = nil
+    assert_not @author.valid?
+  end
+
 end
