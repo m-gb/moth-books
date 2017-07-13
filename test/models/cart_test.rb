@@ -7,8 +7,8 @@ class CartTest < ActiveSupport::TestCase
     @user = users(:jack)
   end
 
-  test "should be valid" do
-    assert @cart.valid?
+  test "should save" do
+    assert @cart.save
   end
 
   test "shipping should be 0" do # subtotal is higher than 20

@@ -2,15 +2,15 @@
 one:
   shipping: 2.5
   updated_at: <%= 1.day.ago.to_s(:db) %>
-  # without order and new
+# without order and new and belongs to user john currently
 two:
   shipping: 0
   updated_at: <%= 1.day.ago.to_s(:db) %>
-# without order and really old and belongs to user jack
+# without order and really old and belongs to user jack currently
 three:
   shipping: 0
   updated_at: <%= 10.days.ago.to_s(:db) %>
-# with order and really old
+# with order and really old and belongs to user jack
 four:
   shipping: 2.5
   updated_at: <%= 10.days.ago.to_s(:db) %>

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CartItemTest < ActiveSupport::TestCase
+class CartItemsTest < ActiveSupport::TestCase
 
   def setup
     @cart_item = cart_items(:one)

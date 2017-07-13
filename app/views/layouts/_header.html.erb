@@ -36,7 +36,7 @@
         <li><%= link_to image_tag("cart_white", onmouseover: "this.src='/assets/cart_yellow.png'",
                                       onmouseout: "this.src='/assets/cart_white.png'",
                                       alt: "Cart"),
-                                      cart_path(current_cart.id), id: "cart" %></li>
+                                      cart_path(current_cart), id: "cart" %></li>
         <li class="cart-text"><%= render 'layouts/cart_text' %></li>
       </ul>
     </nav>

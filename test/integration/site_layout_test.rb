@@ -6,6 +6,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:john)
+    @cart = carts(:three)
   end
 
   test "layout links" do
@@ -21,11 +22,13 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
 
   test "layout links when logged in" do
     sign_in @user
+    cookies[:cart_id] = @cart.id
     get root_path
     assert_select "a[href=?]", new_user_registration_path, text: 'Sign up', count: 0
     assert_select "a[href=?]", new_user_session_path, text: 'Login', count: 0
     assert_select "a[href=?]", edit_user_registration_path, text: 'Edit profile'
     assert_select "a[href=?]", destroy_user_session_path, text: 'Logout'
+    assert_select "a[href=?]", cart_path(@cart), count: 2
   end
 
   test "layout links when not logged in" do
