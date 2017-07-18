@@ -21,6 +21,6 @@ intensity:
   price: 15.94
   year: 1995
   image_filename: books/intensity.png
-  description: This is the itensity book description.
+  description: This is the intensity book description.
   author: dean
   category: horror

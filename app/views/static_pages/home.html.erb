@@ -2,7 +2,7 @@
   <%= render 'layouts/sidebar' %>
   <div class="col-md-10 jumbotron main">
     <h2>Bestsellers</h2>
-    <div id="bookCarousel" class="carousel carousel-wrapper slide" data-ride="carousel">
+    <div id="bookCarousel" class="carousel carousel-wrapper slide" data-ride="carousel" data-interval="1500">
         <!-- Indicators -->
         <ol class="carousel-indicators">
           <% @books.each_with_index do |book, index| %> <!-- Index is required to set the active item in the carousel  -->
@@ -40,8 +40,6 @@
           </div>
         </li>
         <% end %>
-
-
       </ol>
   </div>
 </div>
