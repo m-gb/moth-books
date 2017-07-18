@@ -16,13 +16,13 @@ class OrdersController < ApplicationController
     end
   end
 
-  def complete
+  def complete        #duplicate books in "you might also like when ordering 2 books from the same category"
     @categories = []
     Cart.find(current_user.cart_id).cart_items.each do |cart_item| # Suggests books based on categories of last order's books.
       @categories << cart_item.book.category
     end
     @books = []
-    @categories.each do |category|
+    @categories.uniq.each do |category|
       category.books.each do |book|
         @books << book
       end
