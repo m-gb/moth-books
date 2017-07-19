@@ -1,3 +1,4 @@
+<%= provide(:title, 'Your Order') %>
 <h1>Your Order</h1>
 <div class="order_summary">
   <div class="jumbotron main">
@@ -11,9 +12,9 @@
       <% end %>
     </ul>
     <div class="order_payment">
-      <p>Subtotal: <%= number_to_currency current_cart.subtotal %></p>
-      <p>Shipping: <%= number_to_currency current_cart.shipping %></p>
-      <p>Total: <span class="order_total"><%= number_to_currency current_cart.total %></span></p>
+      <p>Subtotal: <%= number_to_currency @cart.subtotal %></p>
+      <p>Shipping: <%= number_to_currency @cart.shipping %></p>
+      <p>Total: <span class="order_total"><%= number_to_currency @cart.total %></span></p>
     </div>
   </div>
 </div>
