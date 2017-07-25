@@ -1,11 +1,5 @@
 require 'csv'
 
-Book.delete_all
-CartItem.delete_all
-Author.delete_all
-Cart.delete_all
-Category.delete_all
-
 Book.create(title: "The Lord of the Rings Trilogy", author_id: Author.find_or_create_by(name: "J.R.R. Tolkien").id,
             category_id: Category.find_or_create_by(name: "Fantasy").id, year: 1954,
             image_filename: "books/the_lord_of_the_rings_trilogy.png",
