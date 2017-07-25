@@ -13,6 +13,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     # Skips user info validations during signup.
     resource.skip_info = true
+
+    # Saves cart_id from session to cookies.
+    cookies[:cart_id] = {
+      value: session[:cart_id],
+      expires: 1.month.from_now
+    }
+
     resource.save
     yield resource if block_given?
     if resource.persisted?
