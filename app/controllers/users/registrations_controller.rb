@@ -9,11 +9,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    # Needs to run first so skip_info can be applied to the new user.
     build_resource(sign_up_params)
 
     # Skips user info validations during signup.
     resource.skip_info = true
 
+    # Makes sure the cart from before sign up is carried over.
     # Saves cart_id from session to cookies.
     cookies[:cart_id] = {
       value: session[:cart_id],

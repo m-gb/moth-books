@@ -21,8 +21,8 @@ class Users::SessionsController < Devise::SessionsController
           value: current_user.cart_id,
           expires: 1.month.from_now
         }
-      else
-        # get the session's cart_id and save to cookies.
+      else # condition is met when a user's cart was deleted by the cleanup rake task (nil).
+        # gets the session's cart_id and saves to cookies.
         cookies[:cart_id] = {
           value: session[:cart_id],
           expires: 1.month.from_now

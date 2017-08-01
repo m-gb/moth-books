@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_cart
+  helper_method :current_cart # Allows views to call current_cart method.
 
   def current_cart
     if cookies[:cart_id]
