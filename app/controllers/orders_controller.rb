@@ -18,7 +18,8 @@ class OrdersController < ApplicationController
 
   def complete
     @categories = []
-    Cart.find(current_user.cart_id).cart_items.each do |cart_item| # Suggests books based on categories of last order's books.
+    @order = Order.where(user_id: current_user).last
+    Cart.find(@order.cart_id).cart_items.each do |cart_item| # Suggests books based on categories of last order's books.
       @categories << cart_item.book.category
     end
     @books = []
