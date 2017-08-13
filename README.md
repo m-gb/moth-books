@@ -1,4 +1,4 @@
-# README
+# Moth Books
 
 This is an ongoing project for an online shop selling second-hand books called "Moth Books".
 
