@@ -12,7 +12,6 @@
 /* universal */
 
 body {
-  padding-top: 120px;
   font-family: Roboto, sans-serif;
   background-color: #f0f0f0;
 }
@@ -85,8 +84,13 @@ img {
 }
 /* header */
 
+
+
 .navbar-inverse {
   background-color: #494949;
+  border-color: #494949;
+  border-radius: 0px;
+  box-shadow: 0 1px 5px #888888;
 }
 
 .nav.navbar-nav.navbar-right {
