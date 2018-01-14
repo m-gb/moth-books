@@ -1,5 +1,6 @@
 class CartItemsController < ApplicationController
   def create
+    # Copies the current cart to a new variable, adds a new cart_item to it and saves the changes.
     @cart = current_cart
     existing_cart_item = @cart.cart_items.find_by(book_id: cart_item_params[:book_id])
     if existing_cart_item

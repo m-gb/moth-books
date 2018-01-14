@@ -16,6 +16,7 @@ class Users::SessionsController < Devise::SessionsController
             saved_cart_items << temp_item
           end
         end
+        # updates the user's merged cart for future current_cart calls.
         current_user.cart.save
         cookies[:cart_id] = {
           value: current_user.cart_id,
@@ -33,7 +34,8 @@ class Users::SessionsController < Devise::SessionsController
   end
   def destroy
     if user_signed_in?
-      current_user.update_attributes(cart_id: cookies[:cart_id]) # saves the current cart to the user table
+      # saves the current cart to the user table, in case the user deletes their cookies or switches devices.
+      current_user.update_attributes(cart_id: cookies[:cart_id])
       cookies.delete :cart_id
     end
     super
