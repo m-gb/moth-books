@@ -1,40 +1,39 @@
 source 'https://rubygems.org'
 
-gem 'rails',                    '5.0.1'
-gem 'will_paginate',            '3.1.0'
-gem 'bootstrap-will_paginate',  '0.0.10'
-gem 'bootstrap-sass',           '3.3.6'
-gem 'puma',                     '3.4.0'
-gem 'sass-rails',               '5.0.6'
-gem 'uglifier',                 '3.0.0'
-gem 'coffee-rails',             '4.2.1'
-gem 'jquery-rails',             '4.1.1'
-gem 'jquery-ui-rails',          '6.0.1'
-gem 'turbolinks',               '5.0.1'
-gem 'jbuilder',                 '2.4.1'
-gem 'devise',                   '4.2.1'
-gem 'mysql2',                   '0.4.5'
+gem 'rails',                    '~> 5.0.6'
+gem 'mysql2'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+gem 'bootstrap-sass'
+gem 'puma'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'turbolinks'
+gem 'jbuilder'
+gem 'rails_real_favicon'
+gem 'devise',                   '~> 4.2.1'
 
 group :development, :test do
   gem 'byebug',                 '9.0.0', platform: :mri
-  gem 'rspec-rails',            '3.6'
-  gem 'factory_bot_rails',      '4.8.2'
+  gem 'rspec-rails',            '~> 3.6'
+  gem 'factory_bot_rails',      '~> 4.8.2'
 end
 
 group :development do
-  gem 'web-console',           '3.1.1'
-  gem 'listen',                '3.0.8'
-  gem 'rails_real_favicon'
-  gem 'spring',                '1.7.2'
-  gem 'spring-watcher-listen', '2.0.0'
-
+  gem 'web-console'
+  gem 'listen'
+  gem 'spring'
+  gem 'spring-watcher-listen'
 end
 
 group :test do
-  gem 'rails-controller-testing', '0.1.1'
-  gem 'minitest-reporters',       '1.1.9'
-  gem 'guard',                    '2.13.0'
-  gem 'guard-minitest',           '2.4.4'
+  gem 'rails-controller-testing'
+  gem 'minitest-reporters'
+  gem 'guard'
+  gem 'guard-minitest'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
