@@ -16,7 +16,9 @@ gem 'devise',                   '4.2.1'
 gem 'mysql2',                   '0.4.5'
 
 group :development, :test do
-  gem 'byebug',  '9.0.0', platform: :mri
+  gem 'byebug',                 '9.0.0', platform: :mri
+  gem 'rspec-rails',            '3.6'
+  gem 'factory_bot_rails',      '4.8.2'
 end
 
 group :development do
