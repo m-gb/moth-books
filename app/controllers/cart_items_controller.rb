@@ -1,15 +1,7 @@
 class CartItemsController < ApplicationController
   def create
-    # Copies the current cart to a new variable, adds a new cart_item to it and saves the changes.
     @cart = current_cart
-    existing_cart_item = @cart.cart_items.find_by(book_id: cart_item_params[:book_id])
-    if existing_cart_item
-      @cart_item = @cart.cart_items.find_by(book_id: cart_item_params[:book_id]).increment(:quantity)
-      @cart_item.save
-    else
-      @cart_item = @cart.cart_items.new(cart_item_params)
-    end
-    @cart.save
+    @cart_item = CreateCartItemService.new.call(@cart, cart_item_params)
   end
 
   def update

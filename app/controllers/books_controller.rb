@@ -1,16 +1,14 @@
 class BooksController < ApplicationController
 
+  include Cartable
+
   def index
-    @books = if params[:term]
-      Book.joins(:author).where("authors.name LIKE :query OR books.title LIKE :query", query: "%#{params[:term]}%").paginate(page: params[:books_page], per_page: 8).order("authors.name")
-    else
-      Book.joins(:author).paginate(page: params[:books_page]).order("authors.name")
-    end
-    @cart_item = current_cart.cart_items.new
+    @books = IndexBooksService.new.call(params)
+    @cart_item = add_cart_item
   end
 
   def show
     @book = Book.find(params[:id])
-    @cart_item = current_cart.cart_items.new
+    @cart_item = add_cart_item
   end
 end

@@ -16,6 +16,8 @@ Upon successfully making an order, a list of recommended books based on the last
 
 Users can also access their order history through a menu in the header.
 
+The bestsellers carousel will automatically update based on completed orders.
+
 Using the following tools:
 - Ruby on Rails
 - devise gem

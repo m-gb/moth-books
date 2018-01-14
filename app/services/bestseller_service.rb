@@ -1,9 +1,5 @@
 class BestsellerService
 
-  def self.build
-    new
-  end
-
   # Returns a given number of bestsellers by ordered book count in the database.
   def call(number)
     bestsellers_hash = CartItem.joins(cart: :order).select(:book_id)
@@ -15,5 +11,4 @@ class BestsellerService
     end
     books
   end
-  
 end

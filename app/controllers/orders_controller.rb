@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+  include Cartable
+
   def new
     @user = current_user
   end
@@ -17,18 +19,10 @@ class OrdersController < ApplicationController
   end
 
   def complete
-    @categories = []
     @order = Order.where(user_id: current_user).last
-    Cart.find(@order.cart_id).cart_items.each do |cart_item| # Suggests books based on categories of last order's books.
-      @categories << cart_item.book.category
-    end
-    @books = []
-    @categories.uniq.each do |category|
-      category.books.each do |book|
-        @books << book
-      end
-    end
-    @cart_item = current_cart.cart_items.new
+    # Suggests books based on categories of last order's books.
+    @books = SuggestionService.new.call(@order)
+    @cart_item = add_cart_item
   end
 
   def index
@@ -36,7 +30,8 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @cart = Cart.find(Order.find(params[:id]).cart_id) # Returns a cart based on order id from the index page.
+    # Returns a cart based on order id from the index page.
+    @cart = Cart.find(Order.find(params[:id]).cart_id) 
   end
 
   private
