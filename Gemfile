@@ -19,6 +19,7 @@ gem 'devise',                   '~> 4.2.1'
 group :development, :test do
   gem 'byebug',                 '9.0.0', platform: :mri
   gem 'rspec-rails',            '~> 3.6'
+  gem 'fuubar',                 '~> 2.3.1'
   gem 'factory_bot_rails',      '~> 4.8.2'
 end
 

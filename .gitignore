@@ -25,3 +25,6 @@ config/database.yml
 
 # Ignore Gemfile.lock
 Gemfile.lock
+
+# Ignore vscode files
+.vscode
