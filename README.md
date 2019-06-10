@@ -36,6 +36,9 @@ Finally, there is also a rake task called "cleanup" for removing old carts from 
     - Populate the database:
     ```bash
     moth-books $ rails db:create
+    ```
+    - Create the database:
+    ```bash
     moth-books $ rails db:seed
     ```
     - Run the application:
